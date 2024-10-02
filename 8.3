@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    
+    // รับจำนวนจากผู้ใช้
+    printf("Enter number:\n");
+    scanf("%d", &n);
+
+    // ตรวจสอบว่าตัวเลข n ต้องมากกว่าศูนย์
+    if (n <= 0) {
+        printf("Please enter a positive integer greater than 0.\n");
+        return 1;
+    }
+
+    int a = 1, b = 1; // เริ่มต้นด้วย 1, 1
+    int sum = a; // ผลรวมเริ่มต้น
+    printf("Series = %d + %d", a, b); // แสดงอนุกรมเริ่มต้น
+
+    // ถ้าผู้ใช้ต้องการมากกว่า 2 ตัว
+    for (int i = 3; i <= n; i++) {
+        int next = a + b; // คำนวณลำดับถัดไป
+        printf(" + %d", next); // แสดงลำดับในอนุกรม
+        sum += next; // เพิ่มลำดับถัดไปเข้าไปในผลรวม
+        a = b; // เลื่อนตำแหน่ง
+        b = next; // เลื่อนตำแหน่ง
+    }
+
+    // แสดงผลรวม
+    printf("\nSum = %d\n", sum);
+
+    return 0;
+}
