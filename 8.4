@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// ฟังก์ชันเพื่อคำนวณ Factorial
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1); // เรียกฟังก์ชันซ้ำ
+}
+
+// ฟังก์ชันเพื่อแสดงชุดอนุกรม
+void print_factorial_series(int n) {
+    if (n == 1) {
+        printf("1");
+    } else {
+        printf("%d x ", n);
+        print_factorial_series(n - 1); // เรียกฟังก์ชันซ้ำ
+    }
+}
+
+int main() {
+    int n;
+
+    // รับค่าจากผู้ใช้
+    printf("Enter a number:\n");
+    scanf("%d", &n);
+
+    // แสดงชุดอนุกรม
+    printf("%d! = ", n);
+    print_factorial_series(n);
+    printf("1\n"); // แสดง 1 ในตอนจบ
+
+    // คำนวณค่า Factorial
+    int result = factorial(n);
+    printf("%d! = %d\n", n, result);
+
+    return 0;
+}
