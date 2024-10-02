@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int score;
+
+    // รับคะแนนจากผู้ใช้
+    printf("Enter score:\n");
+    scanf("%d", &score);
+
+    // กำหนดเกรดตามช่วงคะแนน
+    char *grades[] = {"F", "D", "D+", "C", "C+", "B", "B+", "A"};
+    int thresholds[] = {50, 55, 60, 65, 70, 75, 80}; // เกณฑ์คะแนน
+
+    // ใช้ for loop เพื่อตรวจสอบคะแนน
+    for (int i = 0; i < 8; i++) {
+        if (i == 7 || score < thresholds[i]) {
+            printf("%s !\n", grades[i]);
+            break; // หยุดลูปเมื่อเจอเกรดที่ตรงกับคะแนน
+        }
+    }
+
+    return 0;
+}
